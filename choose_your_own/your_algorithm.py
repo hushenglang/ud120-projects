@@ -51,6 +51,15 @@ from sklearn import neighbors
 # prd = clf.predict(features_test)
 
 
+
+###adaboost algorithm
+from sklearn.ensemble import AdaBoostClassifier
+clf = AdaBoostClassifier(n_estimators=50)
+clf.fit(features_train, labels_train)
+prd = clf.predict(features_test)
+
+
+
 from sklearn.metrics import accuracy_score
 
 acc = accuracy_score(labels_test, prd)

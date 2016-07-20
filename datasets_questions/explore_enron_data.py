@@ -19,4 +19,26 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
+print 'total number: ', len(enron_data)
+print enron_data['SKILLING JEFFREY K']
+print enron_data['LAY KENNETH L']['total_payments']
+print enron_data['SKILLING JEFFREY K']['total_payments']
+print enron_data['FASTOW ANDREW S']['total_payments']
 
+
+
+poiPersons = [k for k, v in enron_data.items() if v['email_address']!='NaN']
+
+
+print len(poiPersons)
+print  poiPersons
+
+###############################################
+array = []
+with open('../final_project/poi_names.txt') as fo:
+    array = fo.read().splitlines()
+
+filteredArray = [s for s in array if (s.find('(y)')!=-1) or (s.find('(n)')!=-1)]
+
+print len(filteredArray)
+print filteredArray

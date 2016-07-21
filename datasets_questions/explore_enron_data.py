@@ -25,13 +25,14 @@ print enron_data['LAY KENNETH L']['total_payments']
 print enron_data['SKILLING JEFFREY K']['total_payments']
 print enron_data['FASTOW ANDREW S']['total_payments']
 
+print 'totla number:', len(enron_data.items())
+
+poiPersons = [v for k, v in enron_data.items() if v['poi']==True]
 
 
-poiPersons = [k for k, v in enron_data.items() if v['email_address']!='NaN']
-
-
-print len(poiPersons)
-print  poiPersons
+print 'result:', len(poiPersons)
+print 'result:', len(poiPersons)/float(len(enron_data.items()))
+print  map(lambda x:x['total_stock_value'], poiPersons)
 
 ###############################################
 array = []

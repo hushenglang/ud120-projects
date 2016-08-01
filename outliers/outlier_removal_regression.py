@@ -74,8 +74,9 @@ if len(cleaned_data) > 0:
     ### refit your cleaned data!
     try:
         reg.fit(ages, net_worths)
-
         print 'new slop:', reg.coef_
+
+        print 'new score:', reg.score(ages_test, net_worths_test)
 
         plt.plot(ages, reg.predict(ages), color="red")
     except NameError:

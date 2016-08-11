@@ -32,7 +32,7 @@ features_test  = vectorizer.transform(features_test).toarray()
 
 
 
-print 'features_train: ', features_train[0]
+# print 'features_train: ', features_train[0]
 
 
 ### a classic way to overfit is to use a small number
@@ -41,6 +41,7 @@ print 'features_train: ', features_train[0]
 features_train = features_train[:150].toarray()
 labels_train   = labels_train[:150]
 
+print 'labels_train', labels_train
 
 
 ### your code goes here
@@ -52,5 +53,8 @@ prd = clf.predict(features_test)
 from sklearn.metrics import accuracy_score
 print 'accuracy:', accuracy_score(prd, labels_test)
 
+importances = [ i for i in clf.feature_importances_ if i>=0.2]
+print importances
+print list(clf.feature_importances_).index(importances[0])
 
-print 'feature_importances_: ', [ i for i in clf.feature_importances_ if i>=0.2]
+

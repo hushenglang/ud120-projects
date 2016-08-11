@@ -21,6 +21,8 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
+print features_train
+print labels_train
 
 
 
@@ -33,6 +35,7 @@ gnb = GaussianNB()
 t0 = time()
 
 print features_train
+print 'QQ'
 print labels_train
 
 gnb.fit(features_train, labels_train)

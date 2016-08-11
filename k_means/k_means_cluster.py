@@ -34,7 +34,7 @@ def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature
     plt.xlabel(f1_name)
     plt.ylabel(f2_name)
     plt.savefig(name)
-    plt.show()
+    # plt.show()
 
 
 
@@ -61,6 +61,20 @@ features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
+print 'finance_features_max: ', numpy.array(finance_features).max(0)
+print 'finance_features_min: ', numpy.array(finance_features).min(0)
+
+
+
+from sklearn.preprocessing import MinMaxScaler
+import numpy
+s = MinMaxScaler()
+r = s.fit_transform(numpy.array([0,1000000,34348384]))
+print r
+print "scale_:", s.scale_
+
+
+
 
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
@@ -76,7 +90,7 @@ from sklearn.cluster import KMeans
 k = KMeans(n_clusters=2)
 k.fit(finance_features)
 pred = k.predict(finance_features)
-# print pred
+print pred
 
 
 

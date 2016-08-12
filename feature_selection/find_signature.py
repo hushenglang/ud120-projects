@@ -31,7 +31,6 @@ features_train = vectorizer.fit_transform(features_train)
 features_test  = vectorizer.transform(features_test).toarray()
 
 
-
 # print 'features_train: ', features_train[0]
 
 
@@ -55,6 +54,8 @@ print 'accuracy:', accuracy_score(prd, labels_test)
 
 importances = [ i for i in clf.feature_importances_ if i>=0.2]
 print importances
-print list(clf.feature_importances_).index(importances[0])
+indexOfimportance = list(clf.feature_importances_).index(importances[0])
+print indexOfimportance
 
-
+featureNameList = vectorizer.get_feature_names()
+print featureNameList[indexOfimportance]

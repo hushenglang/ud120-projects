@@ -30,6 +30,10 @@ clf = tree.DecisionTreeClassifier(min_samples_split=40)
 clf.fit(features_train, labels_train)
 prd = clf.predict(features_test)
 
+### persist the model ###
+from sklearn.externals import joblib
+joblib.dump(clf, 'model.pkl')
+
 
 from sklearn.metrics import accuracy_score
 

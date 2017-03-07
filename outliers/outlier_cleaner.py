@@ -15,12 +15,12 @@ def outlierCleaner(predictions, ages, net_worths):
     maxErrorsIndexs = map(lambda x:x[0], maxErrors)
     # print 'predictions', predictions
     # print 'networth', net_worths
-    print 'errors:', errors
-    print 'maxErrors', maxErrors
-    print 'maxErrorsIndexs', maxErrorsIndexs
+    print('errors:', errors)
+    print('maxErrors', maxErrors)
+    print('maxErrorsIndexs', maxErrorsIndexs)
 
     cleaned_data = [(ages[i][0], net_worths[i][0], errors[i][0]) for i in range(0, len(predictions)) if i not in maxErrorsIndexs]
-    print 'data count:', len(cleaned_data)
+    print('data count:', len(cleaned_data))
     ### your code goes here
 
     
